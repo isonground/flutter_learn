@@ -2,6 +2,8 @@ void main(){
   // list 列表类型, 用于表示多个元素
   List students = ['张三', '李四', '王五'];
   print(students);
+  // 通过索引获取元素
+  print(students[0]);
 
   // 列表常用方法
   // 在尾部添加元素
@@ -30,5 +32,30 @@ void main(){
     print(element);
   });
   
-  // 是否满足条件
+  // 判断列表中所有元素是否均满足条件
+  students.addAll(['新同学1', '新同学2', '新同学3', '新同学4']);
+  print(students.every((element){
+    // 返回一个bool类型
+    return element.toString().startsWith("新"); // 是否是以新字开头
+  }));
+
+  // 筛选出满足条件的元素
+  print(
+    students.where(
+      (element){
+        return element.toString().startsWith("新"); // 返回是否是以新字开头
+      }
+    ).toList()
+  );
+
+  // List常用属性
+
+  // 列表的长度
+  print(students.length);
+  // 列表最后一个元素
+  print(students.last);
+  // 列表第一个元素
+  print(students.first);
+  // 列表是否为空
+  print(students.isEmpty);
 }
