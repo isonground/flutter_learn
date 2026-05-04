@@ -1,4 +1,4 @@
-// # Scaffold
+// # Scaffold 骨架组件
 // `Scaffold`是Flutter提供的一个Widget,用于构建Material Design风格的Scaffold。
 // `Scaffold`常用参数
 // - `appBar`: 应用程序的AppBar,用于显示应用的标题、操作按钮等
