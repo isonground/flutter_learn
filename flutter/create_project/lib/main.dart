@@ -1,4 +1,8 @@
-// 点击事件GestureDetector
+// 状态更新
+/**
+ * 状态更新setState
+ * setState方法用于更新组件的状态，触发组件的重新构建
+ * */
 
 import 'package:flutter/material.dart';
 
@@ -6,39 +10,12 @@ void main() {
     runApp(MyApp());
 }
 
-
-
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
-
-// /**
-//  * 点击事件GestureDetector
-//  * GestureDetector组件用于注册点击事件
-//  * onTap属性用于指定点击事件的回调函数
-//  * child属性用于指定需要注册点击事件的元素
-//  * */
-// class _MyAppState extends State<MyApp> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: '点击事件',
-//       home: Container(
-//         child: GestureDetector(
-//           // 点击事件
-//           onTap: () {
-//             print('点击了');
-//           },
-//           // 需要注册点击事件的元素（用child属性包裹）
-//           child: Text('点击我'),
-//         ),
-//       )
-//     );
-//   }
-// }
 
 // 组件点击事件
 /**
