@@ -30,6 +30,7 @@ void test2() async{
       throw Exception('test error');
     });
     // Future异步操作执行成功后执行下方逻辑
+    // ignore: dead_code
     print('执行成功逻辑2');
   }catch(error){
     // 通过try/catch可以捕获异常,在catch中处理异常

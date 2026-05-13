@@ -13,5 +13,6 @@ class Person{
   // 公有方法
   void sayHello() => print('你好，我是$name，我今年$age岁');
   // 私有方法(方法名前加下划线)
+  // ignore: unused_element
   void _Hello() => print('你好，我是$name，性别$_gender，我今年$age岁');
 } 

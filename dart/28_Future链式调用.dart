@@ -23,6 +23,7 @@ void main(){
     // 第四个任务,输出前几个任务输出值,同时抛出异常
     print(value);
     throw Exception("task3 error");
+    // ignore: invalid_return_type_for_catch_error
   }).catchError((error) => print(error)
   );
 }

@@ -5,6 +5,7 @@
 // 这里同时要记得引入头文件`import 'package:flutter/material.dart';`
 // 可以通过快速修复功能自动引入头文件引用
 
+// ignore: unused_import
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {

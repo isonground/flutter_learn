@@ -48,6 +48,7 @@ void main(){
   bool isdown = true;
   bool isup = false;
   print(isdown && isup);  // 与
+  // ignore: dead_code
   print(isdown || isup);  // 或
   print(!isdown);  // 非
 }

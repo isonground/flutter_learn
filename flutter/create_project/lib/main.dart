@@ -1,27 +1,31 @@
-// 布局组件——对齐组件Align
-
-/**
- * 对齐组件Align
- * 对齐组件可以精确控制子组件在父容器空间内的对齐位置
- * 常用属性
- * alignment：对齐方式
- *  - Alignment.center 居中对齐
- *  - Alignment.topLeft 左上角对齐
- *  - Alignment.topRight 右上角对齐
- *  - Alignment.topCenter 上顶部居齐对齐
- *  - Alignment.bottomLeft 左下角对齐
- *  - Alignment.bottomRight 右下角对齐
- *  - Alignment.bottomCenter 下底部居齐对齐
- *  - Alignment.leftCenter 左侧居齐对齐
- *  - Alignment.rightCenter 右侧居齐对齐
- * widthFactor：宽度因子
- * heightFactor：高度因子
- */
+// 布局组件——弹性布局Flex
 
 import 'package:flutter/material.dart';
 
-void main(){
-    runApp(MainPage());
+/**
+ * Flex用于弹性布局其子组件的核心布局容器
+ * 常用属性
+ *  - direction：布局方向，决定主轴的方向
+ *      - Axis.horizontal：水平方向
+ *      - Axis.vertical：垂直方向
+ *  - mainAxisAlignment：主轴对齐方式
+ *  - crossAxisAlignment：交叉轴对齐方式
+ *  - mainAxisSize：主轴尺寸策略
+ *  - children：子组件列表
+ */
+
+// Expanded
+/**
+ * Expanded用于弹性布局其子组件的组件
+ * 常用属性
+ *  - flex：子组件的权重，权重越大，子组件的尺寸就越大
+ *  - child：子组件
+ */
+
+// Flexible
+
+void main(List<String> args) {
+  runApp(MainPage());
 }
 
 class MainPage extends StatelessWidget {
@@ -30,20 +34,36 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Align',
         home: Scaffold(
             appBar: AppBar(
-                title: Text('Align'),
+                title: Text('弹性布局Flex'),
                 centerTitle: true,
             ),
-            body: Align(
-                // 居中显示
-                alignment: Alignment.center,
-                // 通过Icon组件显示一个黄色的星号
-                child: Icon(
-                    Icons.star,
-                    size: 50,
-                    color: Colors.yellow,
+            body: Container(
+                height: double.infinity,
+                decoration: BoxDecoration(
+                    color: Colors.grey,
+                ),
+                child: Flex(
+                    direction: Axis.horizontal,
+                    children: [
+                        Expanded(
+                            flex: 1,
+                            child: Container(
+                                color: Colors.red,
+                                height: 100,
+                                width: 100,
+                            ),
+                        ),
+                        Expanded(
+                            flex: 2,
+                            child: Container(
+                                color: Colors.blue,
+                                height: 100,
+                                width: 100,
+                            ),
+                        ),
+                    ],
                 ),
             ),
         ),
