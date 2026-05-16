@@ -1,5 +1,17 @@
-// 整页滚动容器——PageView
+// 自定义滚动容器——CustomScrollView
 
+/**
+ * CustomScrollView
+ * 常用于组合多个可滚动组件，实现统一协调的滚动效果，同时提供了粘性组件的功能
+ * Sliver组件：用于构建自定义滚动容器的组件，提供了丰富的滚动效果和布局选项
+ * 常用Sliver组件：
+ *  - SliverToBoxAdapter：用于包裹普通组件，将其转换为可滚动组件
+ *  - SliverPersistentHeader：用于固定在顶部或底部的组件
+ *  - SliverList：用于构建列表组件
+ *  - SliverGrid：用于构建网格组件
+ *  - SliverAppBar：用于构建应用栏组件
+ *  - SliverPadding：用于包裹子组件，设置内边距
+ */
 import 'package:flutter/material.dart';
 
 void main(List<String> args) {

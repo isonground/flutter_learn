@@ -1,4 +1,4 @@
-//布局组件——内边距组件Padding
+//布局组件——边距组件Padding/Margin
 
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,8 @@ import 'package:flutter/material.dart';
 ///      - EdgeInsets.symmetric()：分别设置水平方向和垂直方向的内边距
 ///  - child：子组件
 /// Margin：外边距组件
+/// 
+/// 单独的SizedBox组件：也常用来占空间实现留空或者边距的效果
 
 void main(){
     runApp(MainPage());

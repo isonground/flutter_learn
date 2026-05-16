@@ -1,4 +1,4 @@
-// 基础组件——流式布局——Wrap
+// 布局组件——流式布局——Wrap
 
 import 'package:flutter/material.dart';
 

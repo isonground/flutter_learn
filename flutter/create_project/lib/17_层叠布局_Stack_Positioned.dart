@@ -1,4 +1,4 @@
-// 基础组件_层叠布局Stack/Positioned
+// 布局组件_层叠布局Stack/Positioned
 
 /// 将多个子组件按照Z轴（垂直于屏幕）方向进行叠加排列
 
