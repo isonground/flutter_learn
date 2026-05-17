@@ -1,64 +1,7 @@
-// 组件通信——子传父
+// 网络请求——Dio插件
 
-/**
- * 步骤
- * 1. 父组件传递一个函数给子组件
- * 2. 子组件调用该函数
- * 3. 父组件通过该回调函数获取参数
- */
-
-import 'package:flutter/material.dart';
-
-// 基于上一节父传子的小案例，通过在商品列表的每个商品卡片右上角添加一个删除图标，点击可以删除对应商品
-
-void main(List<String> args) {
-  runApp(MainPage());
-}
-
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  List<String> _List = ['商品1','商品2','商品3','商品4','商品5','商品6','商品7',];
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: GridView.count(crossAxisCount: 2,
-          mainAxisSpacing: 10,
-          crossAxisSpacing: 10,
-          children: List.generate(_List.length,
-            (index) => ChildPage(message: _List[index]),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ChildPage extends StatefulWidget {
-  final String message;
-  const ChildPage({super.key, required this.message});
-
-  @override
-  State<ChildPage> createState() => _ChildPageState();
-}
-
-class _ChildPageState extends State<ChildPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.blue,
-      alignment: Alignment.center,
-      child: Text(
-        widget.message,
-        style: TextStyle(color: Colors.white, fontSize: 20),
-      ),
-    );
-  }
-}
-
+/// 网络请求通过使用Dio插件实现
+/// Dio插件是一个基于Dart的网络请求库，它提供了简单而强大的网络请求功能
+/// 安装Dio插件
+/// 方法1：flutter pub add dio 注意：需要在工程目录下执行
+/// 方法2：在pubspec.yaml文件中添加依赖（dio:^0.19.0），但是一般使用过程中是不知道版本号的，最好只用方法1
