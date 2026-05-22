@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// 登录页
+/// 登录页的路由为：/login
+
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 

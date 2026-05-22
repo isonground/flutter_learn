@@ -6,12 +6,6 @@ import 'package:shopexample/pages/Mine/index.dart';
 
 /// 主页
 /// 主页的路由为：/main
-/// 内容包括：
-/// - 顶层搜索框
-/// - 底部导航栏
-/// 顶层轮播图
-/// - 商品分类
-/// - 商品列表
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
