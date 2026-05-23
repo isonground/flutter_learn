@@ -16,6 +16,7 @@ import 'package:shopexample/components/Home/shopCategory.dart';
 import 'package:shopexample/components/Home/shopSuggestion.dart';
 import 'package:shopexample/components/Home/shopHot.dart';
 import 'package:shopexample/components/Home/shopMoreList.dart';
+import 'package:shopexample/viewmodels/home.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -25,10 +26,26 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  // 轮播图数据(这里取三张演示图片)
+  List<BannerItem> _bannerList = [
+    BannerItem(
+      id: '1',
+      imgUrl: 'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/1.jpg',
+    ),
+    BannerItem(
+      id: '2',
+      imgUrl: 'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/2.png',
+    ),
+    BannerItem(
+      id: '3',
+      imgUrl: 'https://yjy-teach-oss.oss-cn-beijing.aliyuncs.com/meituan/3.jpg',
+    ),
+  ];
+
   List<Widget> _getScrollChildren() {
     return [
       // 轮播图
-      SliverToBoxAdapter(child: shopSlider()),
+      SliverToBoxAdapter(child: shopSlider(bannerList: _bannerList)),
       SliverToBoxAdapter(child: SizedBox(height: 10,)),
       // 分类
       SliverToBoxAdapter(child: shopCategory()),
