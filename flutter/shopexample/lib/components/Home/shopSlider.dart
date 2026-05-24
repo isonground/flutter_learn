@@ -3,6 +3,17 @@
 /// 使用轮播图插件(carousel_slider)实现轮播图功能
 /// 命令：flutter pub add carousel_slider
 
+/**
+ * 关于动态轮播数据获取
+ * 1. 安装dio插件
+ * 2. 定义常量数据、基础地址、超时时间、业务状态、请求地址
+ * 3. 封装网络请求工具、基础地质和拦截器
+ * 4. 请求工具进一步解构，处理http状态和业务状态
+ * 5. 类工厂转化动态类型到对象类型
+ * 6. 封装请求API调用工厂函数
+ * 7. 初始化数据更新状态
+ */
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:shopexample/viewmodels/home.dart';

@@ -11,7 +11,7 @@
   - api         # 接口层
   - assets      # 存放资源
   - components  # 公共组件
-  - contants    # 常量文件
+  - constants    # 常量文件
   - viewmodels  # 类型文件(types)
   - pages       # 存放页面
   - routes      # 路由配置
