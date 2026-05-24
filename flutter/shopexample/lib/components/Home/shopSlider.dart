@@ -10,6 +10,7 @@ import 'package:shopexample/viewmodels/home.dart';
 class shopSlider extends StatefulWidget {
   // 轮播图项的列表用于传递轮播图数据
   final List<BannerItem> bannerList;
+
   const shopSlider({super.key, required this.bannerList});
 
   @override
@@ -17,11 +18,27 @@ class shopSlider extends StatefulWidget {
 }
 
 class _shopSliderState extends State<shopSlider> {
+  // 轮播图控制器
+  final CarouselSliderController _carouselController =
+      CarouselSliderController();
+  // 轮播图当前项的索引
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [_getSliderChildren()]);
+    return Stack(
+      children: [
+        // 轮播图
+        _getSliderChildren(),
+        // 轮播图指示灯
+        _getSliderIndicators(),
+        // 搜索栏
+        _getSearchBar(),
+      ],
+    );
   }
 
+  // 轮播图项的构建函数
   Widget _getSliderChildren() {
     return CarouselSlider(
       items: List.generate(
@@ -43,6 +60,80 @@ class _shopSliderState extends State<shopSlider> {
         autoPlay: true,
         // 轮播图自动播放的时间间隔(默认4秒)
         autoPlayInterval: Duration(seconds: 3),
+        // 轮播图项切换时的回调函数
+        onPageChanged: (index, reason) {
+          // 轮播图项切换时更新当前项的索引
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
+      carouselController: _carouselController,
+    );
+  }
+
+  // 轮播图指示灯的构建函数
+  Widget _getSliderIndicators() {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 10,
+      child: SizedBox(
+        height: 10,
+        width: double.infinity,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: List.generate(widget.bannerList.length, (index) {
+            return GestureDetector(
+              onTap: () {
+                // 点击指示灯切换轮播图项
+                _carouselController.animateToPage(index);
+                setState(() {});
+              },
+              child: AnimatedContainer(
+                height: 6,
+                width: index == _currentIndex ? 20 : 10,
+                margin: EdgeInsets.symmetric(horizontal: 5),
+                decoration: BoxDecoration(
+                  color: index == _currentIndex
+                      ? Colors.white
+                      : Color.fromRGBO(0, 0, 0, 0.5),
+                  borderRadius: BorderRadius.circular(3),
+                ),
+                duration: Duration(milliseconds: 300),
+              ),
+            );
+          }),
+        ),
+      ),
+    );
+  }
+
+  // 搜索栏的构建函数
+  Widget _getSearchBar() {
+    return Positioned(
+      left: 0,
+      right: 0,
+      top: 10,
+      child: Container(
+        height: 30,
+        width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(0, 0, 0, 0.4),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Center(
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: '搜索',
+              icon: Icon(Icons.search),
+              iconColor: Colors.white,
+              hintStyle: TextStyle(color: Colors.white),
+            ),
+            strutStyle: StrutStyle(fontSize: 10),
+          ),
+        ),
       ),
     );
   }
